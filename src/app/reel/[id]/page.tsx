@@ -69,7 +69,7 @@ export default function ReelPage() {
             user:user_id(id, username, avatar_url)
           `)
           .eq('reel_id', reelId)
-          .order('created_at', { ascending: false });
+          .order('created_at', { ascending: false })
 
         if (commentsError) throw commentsError;
         setComments(commentsData || []);
@@ -131,7 +131,7 @@ export default function ReelPage() {
           .insert({
             reel_id: reelId,
             user_id: user.id
-          });
+          }
 
         if (error) throw error;
         setIsLiked(true);
@@ -315,7 +315,11 @@ export default function ReelPage() {
       </div>
     </div>
   );
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+}
+
+if (error || !reel) {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <Navbar />
         <div className="pt-20 pb-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="flex justify-center items-center h-64">
@@ -444,7 +448,11 @@ export default function ReelPage() {
       </div>
     </div>
   );
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+}
+
+if (error || !reel) {
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <Navbar />
         <div className="pt-20 pb-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -580,3 +588,4 @@ export default function ReelPage() {
       </div>
     </div>
   );
+}

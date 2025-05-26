@@ -131,7 +131,7 @@ export default function ReelPage() {
           .insert({
             reel_id: reelId,
             user_id: user.id
-          }
+          })
 
         if (error) throw error;
         setIsLiked(true);
@@ -327,7 +327,7 @@ if (error || !reel) {
           </div>
         </div>
       </div>
-    );
+  );
   }
 
   if (error || !reel) {

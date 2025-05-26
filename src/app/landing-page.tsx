@@ -280,68 +280,92 @@ export default function LandingPage() {
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
                   <Code2 className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-xl font-semibold text-gray-900">Joy Hacks</span>
               </div>
-              <span className="text-xl font-semibold text-gray-900">Joy Hacks</span>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                The platform where code meets creativity. Share, discover, and learn from the global developer
+                community.
+              </p>
+              <div className="flex space-x-4">
+                <Link href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
+                  <Github className="w-5 h-5" />
+                </Link>
+                <Link href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
+                  <Twitter className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              The platform where code meets creativity. Share, discover, and learn from the global developer
-              community.
-            </p>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <Github className="w-5 h-5" />
+
+            {[
+              {
+                title: "Product",
+                links: [
+                  { name: "Features", href: "/features" },
+                  { name: "Pricing", href: "/pricing" },
+                  { name: "API", href: "/api" },
+                  { name: "Documentation", href: "/docs" },
+                ],
+              },
+              {
+                title: "Community",
+                links: [
+                  { name: "Explore", href: "/explore" },
+                  { name: "Developers", href: "/developers" },
+                  { name: "Blog", href: "/blog" },
+                  { name: "Newsletter", href: "/newsletter" },
+                ],
+              },
+              {
+                title: "Support",
+                links: [
+                  { name: "Help Center", href: "/help" },
+                  { name: "Contact", href: "/contact" },
+                  { name: "Status", href: "/status" },
+                  { name: "Feedback", href: "/feedback" },
+                ],
+              },
+            ].map((section, index) => (
+              <div key={index}>
+                <h4 className="font-semibold text-gray-900 mb-4">{section.title}</h4>
+                <ul className="space-y-3">
+                  {section.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <Link href={link.href} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Joy Hacks. All rights reserved.</p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <Link href="/privacy" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">
+                Privacy Policy
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
-                <Twitter className="w-5 h-5" />
+              <Link href="/terms" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">
+                Terms of Service
+              </Link>
+              <Link href="/cookies" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">
+                Cookies
               </Link>
             </div>
           </div>
+        </div>
+      </footer>
 
-          {[
-            {
-              title: "Product",
-              links: [
-                { name: "Features", href: "/features" },
-                { name: "Pricing", href: "/pricing" },
-                { name: "API", href: "/api" },
-                { name: "Documentation", href: "/docs" },
-              ],
-            },
-            {
-              title: "Community",
-              links: [
-                { name: "Explore", href: "/explore" },
-                { name: "Developers", href: "/developers" },
-                { name: "Blog", href: "/blog" },
-                { name: "Newsletter", href: "/newsletter" },
-              ],
-            },
-            {
-              title: "Support",
-              links: [
-                { name: "Help Center", href: "/help" },
-                { name: "Contact", href: "/contact" },
-                { name: "Status", href: "/status" },
-                { name: "Feedback", href: "/feedback" },
-              ],
-            },
-          ].map((section, index) => (
-            <div key={index}>
-              <h4 className="font-semibold text-gray-900 mb-4">{section.title}</h4>
-              <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <Link href={link.href} className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 text-sm">
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-</div>
-</footer>
-</div>
-)
+      <style jsx>{`
+        .animation-delay-200 {
+          animation-delay: 200ms;
+        }
+        .animation-delay-400 {
+          animation-delay: 400ms;
+        }
+      `}</style>
+    </div>
+  )
 }

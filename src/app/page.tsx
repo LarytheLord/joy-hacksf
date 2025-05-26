@@ -12,17 +12,17 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg transform transition-transform hover:scale-110">
                 <Code2 className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-gray-900">Joy Hacks</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               <Link
-                href="/features"
+                href="/explore"
                 className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium"
               >
-                Features
+                Explore
               </Link>
               <Link
                 href="/community"
@@ -30,19 +30,28 @@ export default function LandingPage() {
               >
                 Community
               </Link>
-              <Link href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
-                Pricing
+              <Link href="/create" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
+                Create
               </Link>
-              <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">
-                About
-              </Link>
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 rounded-full px-4"
-              >
-                Sign In
-              </Button>
+              <div className="flex items-center space-x-4">
+                <Link href="/login">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50 rounded-full px-4"
+                  >
+                    Sign In
+                  </Button>
+                </Link>
+                <Link href="/signup">
+                  <Button
+                    size="sm"
+                    className="gradient-bg-blue-purple text-white rounded-full px-4 transition-all duration-200 hover:scale-105"
+                  >
+                    Sign Up
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -55,41 +64,50 @@ export default function LandingPage() {
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
               Code meets
               <br />
-              <span className="text-blue-600">creativity</span>
+              <span className="gradient-text animate-pulse">creativity</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed font-light">
               Share your code snippets alongside their live results.
               <br />A new way to showcase and discover programming magic.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-3 text-base font-medium transition-all duration-200 hover:scale-105"
-              >
-                Get started for free
-              </Button>
-              <Button
-                variant="ghost"
-                size="lg"
-                className="text-blue-600 hover:text-blue-700 rounded-full px-8 py-3 text-base font-medium group"
-              >
-                Watch demo
-                <Play className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
-              </Button>
+              <Link href="/signup">
+                <Button
+                  size="lg"
+                  className="gradient-bg-blue-purple hover:from-blue-700 hover:to-purple-700 text-white rounded-full px-8 py-3 text-base font-medium transition-all duration-200 hover:scale-105 shadow-lg"
+                >
+                  Get started for free
+                </Button>
+              </Link>
+              <Link href="/explore">
+                <Button
+                  variant="ghost"
+                  size="lg"
+                  className="text-blue-600 hover:text-blue-700 rounded-full px-8 py-3 text-base font-medium group backdrop-blur-sm border border-blue-200 shadow-sm"
+                >
+                  Explore reels
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform animate-pulse" />
+                </Button>
+              </Link>
             </div>
           </div>
 
           {/* Hero Visual */}
           <div className="relative max-w-5xl mx-auto">
-            <div className="bg-gray-50 rounded-3xl p-8 shadow-2xl shadow-gray-200/50">
-              <div className="grid md:grid-cols-2 gap-8 h-96">
+            <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 shadow-2xl shadow-gray-200/50 border border-blue-100/50">
+              <div className="grid md:grid-cols-2 gap-8 h-96 relative overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-300/20 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-300/20 rounded-full blur-3xl"></div>
                 {/* Code Side */}
-                <div className="bg-gray-900 rounded-2xl p-6 relative overflow-hidden">
+                <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 relative overflow-hidden shadow-xl border border-gray-700">
+                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
                   <div className="flex items-center gap-2 mb-4">
                     <div className="flex gap-1.5">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-red-500 rounded-full hover:animate-pulse cursor-pointer"></div>
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full hover:animate-pulse cursor-pointer"></div>
+                      <div className="w-3 h-3 bg-green-500 rounded-full hover:animate-pulse cursor-pointer"></div>
                     </div>
                     <span className="text-sm text-gray-400 ml-2 font-mono">animation.js</span>
                   </div>
@@ -107,15 +125,17 @@ export default function LandingPage() {
                 </div>
 
                 {/* Result Side */}
-                <div className="bg-white rounded-2xl p-6 flex items-center justify-center border border-gray-200">
+                <div className="bg-gradient-to-br from-white to-blue-50 rounded-2xl p-6 flex items-center justify-center border border-blue-100 shadow-xl relative overflow-hidden">
+                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-pink-300/10 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-300/10 rounded-full blur-3xl"></div>
                   <div className="text-center">
                     <div className="relative w-32 h-32 mx-auto mb-4">
-                      <div className="absolute inset-0 bg-blue-100 rounded-full animate-ping"></div>
-                      <div className="absolute inset-2 bg-blue-200 rounded-full animate-ping animation-delay-200"></div>
-                      <div className="absolute inset-4 bg-blue-300 rounded-full animate-ping animation-delay-400"></div>
-                      <div className="absolute inset-6 bg-blue-500 rounded-full"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full animate-ping"></div>
+                      <div className="absolute inset-2 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full animate-ping animation-delay-200"></div>
+                      <div className="absolute inset-4 bg-gradient-to-r from-blue-300 to-purple-300 rounded-full animate-ping animation-delay-400"></div>
+                      <div className="absolute inset-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-lg"></div>
                     </div>
-                    <p className="text-sm text-gray-500 font-medium">Interactive ripple effect</p>
+                    <p className="text-sm text-gray-600 font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">Interactive ripple effect</p>
                   </div>
                 </div>
               </div>
@@ -254,20 +274,24 @@ export default function LandingPage() {
             Join thousands of developers sharing their code creations
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-3 text-base font-medium transition-all duration-200 hover:scale-105"
-            >
-              Start creating for free
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-gray-300 text-gray-700 hover:bg-gray-50 rounded-full px-8 py-3 text-base font-medium"
-            >
-              View pricing
-            </Button>
+            <Link href="/signup">
+              <Button
+                size="lg"
+                className="gradient-bg-blue-purple hover:from-blue-700 hover:to-purple-700 text-white rounded-full px-8 py-3 text-base font-medium transition-all duration-200 hover:scale-105 shadow-lg"
+              >
+                Start creating for free
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/explore">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 rounded-full px-8 py-3 text-base font-medium backdrop-blur-sm border border-blue-200 shadow-sm"
+              >
+                Explore reels
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -278,7 +302,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-5 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
                   <Code2 className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-semibold text-gray-900">Joy Hacks</span>
@@ -301,17 +325,17 @@ export default function LandingPage() {
             {
               title: "Product",
               links: [
-                { name: "Features", href: "/features" },
-                { name: "Pricing", href: "/pricing" },
-                { name: "API", href: "/api" },
+                { name: "Explore", href: "/explore" },
+                { name: "Create", href: "/create" },
+                { name: "Profile", href: "/profile" },
                 { name: "Documentation", href: "/docs" },
               ],
             },
             {
               title: "Community",
               links: [
-                { name: "Explore", href: "/explore" },
-                { name: "Developers", href: "/developers" },
+                { name: "Featured", href: "/featured" },
+                { name: "Developers", href: "/community" },
                 { name: "Blog", href: "/blog" },
                 { name: "Newsletter", href: "/newsletter" },
               ],
@@ -331,7 +355,7 @@ export default function LandingPage() {
               <ul className="space-y-3">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <Link href={link.href} className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 text-sm">
+                    <Link href={link.href} className="text-gray-600 hover:text-gray-900 transition-colors text-sm">
                 {link.name}
               </Link>
             </li>
@@ -342,6 +366,24 @@ export default function LandingPage() {
   </div>
 </div>
 </footer>
+
+      <style jsx>{`
+        .animation-delay-200 {
+          animation-delay: 200ms;
+        }
+        .animation-delay-400 {
+          animation-delay: 400ms;
+        }
+        .gradient-text {
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+        }
+        .gradient-bg-blue-purple {
+          background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+        }
+      `}</style>
 </div>
 )
 }

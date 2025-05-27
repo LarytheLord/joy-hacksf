@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
-import { createClient } from '@/lib/supabase';
+import { supabase } from '@/lib/supabaseClient';
 import Navbar from '@/components/Navbar';
 import ReelCard from '@/components/ReelCard';
 import Image from 'next/image';

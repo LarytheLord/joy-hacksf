@@ -49,7 +49,7 @@ export default function SignUpScreen() {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.content}>
           <Text variant="headlineLarge" style={styles.title}>
-            Knight Medicare
+            My App
           </Text>
           <Text variant="titleMedium" style={styles.subtitle}>
             Create your account

@@ -146,10 +146,10 @@ export default function ProfileScreen() {
 
         {/* App Information */}
         <Card style={styles.card}>
-          <Card.Title title="About Knight Medicare" />
+          <Card.Title title="About My App" />
           <Card.Content>
             <Text variant="bodyMedium" style={styles.aboutText}>
-              Knight Medicare is a comprehensive psychology practice management app 
+              My App is a comprehensive practice management app 
               designed to facilitate secure communication and task management between 
               Dr. Moloy and clients.
             </Text>

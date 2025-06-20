@@ -33,7 +33,7 @@ export default function LoginScreen() {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.content}>
           <Text variant="headlineLarge" style={styles.title}>
-            Knight Medicare
+            My App
           </Text>
           <Text variant="titleMedium" style={styles.subtitle}>
             Welcome back

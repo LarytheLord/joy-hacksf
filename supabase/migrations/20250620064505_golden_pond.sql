@@ -1,5 +1,5 @@
--- Knight Medicare Database Schema
--- This migration creates the complete database structure for the psychology practice app
+-- Database Schema
+-- This migration creates the complete database structure for the practice app
 
 -- Enable UUID extension
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
@@ -22,8 +22,8 @@ CREATE TABLE profiles (
 -- Doctor details table
 CREATE TABLE doctor_details (
   user_id UUID REFERENCES profiles(id) PRIMARY KEY,
-  practice_name TEXT NOT NULL DEFAULT 'Knight Medicare',
-  specialization TEXT NOT NULL DEFAULT 'Psychology'
+  practice_name TEXT NOT NULL DEFAULT 'My App',
+  specialization TEXT
 );
 
 -- Client details table

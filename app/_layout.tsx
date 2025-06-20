@@ -1,40 +1,44 @@
 import { useEffect } from 'react';
-import { Stack } from 'expo-router';
+import { Stack, SplashScreen } from 'expo-router';
 import { PaperProvider } from 'react-native-paper';
 import { StatusBar } from 'expo-status-bar';
-import * as SplashScreen from 'expo-splash-screen';
-import { useAuthStore } from '@/stores/authStore';
-import { LoadingSpinner } from '@/components/LoadingSpinner'
-import { useFrameworkReady } from '@/hooks/useFrameworkReady';
+import { useEffect } from 'react';
+import { AuthProvider, useAuth } from '../src/context/AuthContext';
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
-  useFrameworkReady();
-  const { isInitialized, isLoading, initialize } = useAuthStore();
+function RootLayoutNav() {
+  const { session, loading } = useAuth();
 
   useEffect(() => {
-    initialize();
-  }, []);
-
-  useEffect(() => {
-    if (isInitialized) {
+    if (!loading) {
       SplashScreen.hideAsync();
     }
-  }, [isInitialized]);
+  }, [loading]);
 
-  if (!isInitialized || isLoading) {
-    return <LoadingSpinner />;
+  if (loading) {
+    return null; // Or a custom loading component
   }
 
   return (
     <PaperProvider>
       <StatusBar style="auto" />
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(auth)" />
-        <Stack.Screen name="(app)" />
+        {session ? (
+          <Stack.Screen name="index" />
+        ) : (
+          <Stack.Screen name="(auth)" />
+        )}
       </Stack>
     </PaperProvider>
+  );
+}
+
+export default function RootLayout() {
+  return (
+    <AuthProvider>
+      <RootLayoutNav />
+    </AuthProvider>
   );
 }
